@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "./img/parzibyte_logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 class Nav extends React.Component {
     render() {
         return (
@@ -17,8 +17,8 @@ class Nav extends React.Component {
                 </div>
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <Link className="navbar-item" to="/">Ver videojuegos</Link>
-                        <Link className="navbar-item" to="/agregar/videojuego">Agregar videojuego</Link>
+                        <NavLink activeClassName="is-active" className="navbar-item" to="/ver/videojuegos">Ver videojuegos</NavLink>
+                        <NavLink activeClassName="is-active" className="navbar-item" to="/agregar/videojuego">Agregar videojuego</NavLink>
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">
