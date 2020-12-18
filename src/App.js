@@ -1,6 +1,7 @@
 import Nav from "./Nav";
 import AgregarVideojuego from "./AgregarVideojuego";
 import VerVideojuegos from "./VerVideojuegos";
+import EditarVideojuego from "./EditarVideojuego";
 import {
   Switch,
   Route,
@@ -13,11 +14,14 @@ function App() {
       <div className="container is-fullhd">
         <div className="columns">
           <Switch>
-            <Route path="/agregar/videojuego">
+            <Route path="/videojuegos/agregar">
               <AgregarVideojuego></AgregarVideojuego>
             </Route>
-            <Route path="/">
+            <Route path="/videojuegos/ver">
               <VerVideojuegos></VerVideojuegos>
+            </Route>
+            <Route path="/videojuegos/editar/:id">
+              <EditarVideojuego></EditarVideojuego>
             </Route>
           </Switch>
         </div>

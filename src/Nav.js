@@ -17,8 +17,8 @@ class Nav extends React.Component {
                 </div>
                 <div id="navbarBasicExample" className="navbar-menu">
                     <div className="navbar-start">
-                        <NavLink activeClassName="is-active" className="navbar-item" to="/ver/videojuegos">Ver videojuegos</NavLink>
-                        <NavLink activeClassName="is-active" className="navbar-item" to="/agregar/videojuego">Agregar videojuego</NavLink>
+                        <NavLink activeClassName="is-active" className="navbar-item" to="/videojuegos/ver">Ver videojuegos</NavLink>
+                        <NavLink activeClassName="is-active" className="navbar-item" to="/videojuegos/agregar">Agregar videojuego</NavLink>
                     </div>
                     <div className="navbar-end">
                         <div className="navbar-item">

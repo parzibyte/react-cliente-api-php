@@ -2,12 +2,13 @@ import React from 'react';
 import Constantes from "./Constantes";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from 'react-router-dom';
-class AgregarVideojuego extends React.Component {
+import { Link, withRouter } from 'react-router-dom';
+class EditarVideojuego extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             videojuego: {
+                id: "",
                 "nombre": "",
                 "precio": "",
                 "calificacion": "",
@@ -17,10 +18,21 @@ class AgregarVideojuego extends React.Component {
         this.manejarCambio = this.manejarCambio.bind(this);
         this.manejarEnvioDeFormulario = this.manejarEnvioDeFormulario.bind(this);
     }
+    async componentDidMount() {
+        // Obtener ID de URL
+        const idVideojuego = this.props.match.params.id;
+        // Llamar a la API para obtener los detalles
+        const respuesta = await fetch(`${Constantes.RUTA_API}/obtener_videojuego.php?id=${idVideojuego}`);
+        const videojuego = await respuesta.json();
+        // "refrescar" el formulario
+        this.setState({
+            videojuego: videojuego,
+        });
+    }
     render() {
         return (
             <div className="column is-one-third">
-                <h1 className="is-size-3">Agregar videojuego</h1>
+                <h1 className="is-size-3">Editando videojuego</h1>
                 <ToastContainer></ToastContainer>
                 <form className="field" onSubmit={this.manejarEnvioDeFormulario}>
                     <div className="form-group">
@@ -51,8 +63,8 @@ class AgregarVideojuego extends React.Component {
 
         const cargaUtil = JSON.stringify(this.state.videojuego);
         // ¡Y enviarlo!
-        const respuesta = await fetch(`${Constantes.RUTA_API}/guardar_videojuego.php`, {
-            method: "POST",
+        const respuesta = await fetch(`${Constantes.RUTA_API}/actualizar_videojuego.php`, {
+            method: "PUT",
             body: cargaUtil,
         });
         const exitoso = await respuesta.json();
@@ -66,13 +78,7 @@ class AgregarVideojuego extends React.Component {
                 draggable: true,
                 progress: undefined,
             });
-            this.setState({
-                videojuego: {
-                    nombre: "",
-                    precio: "",
-                    calificacion: "",
-                }
-            });
+            
         } else {
             toast.error("Error guardando. Intenta de nuevo");
         }
@@ -96,4 +102,4 @@ class AgregarVideojuego extends React.Component {
     }
 }
 
-export default AgregarVideojuego;
+export default withRouter(EditarVideojuego);
