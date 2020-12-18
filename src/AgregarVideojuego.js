@@ -1,8 +1,9 @@
 import React from 'react';
 import Constantes from "./Constantes";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class AgregarVideojuego extends React.Component {
     constructor(props) {
-        console.log(Constantes);
         super(props);
         this.state = {
             videojuego: {
@@ -19,10 +20,11 @@ class AgregarVideojuego extends React.Component {
         return (
             <div className="col-12">
                 <h1>Agregar videojuego</h1>
+                <ToastContainer></ToastContainer>
                 <form onSubmit={this.manejarEnvioDeFormulario}>
                     <div className="form-group">
                         <label htmlFor="nombre">Nombre:</label>
-                        <input required placeholder="Nombre" type="text" id="nombre" onChange={this.manejarCambio} value={this.state.videojuego.nombre} className="form-control" />
+                        <input autoFocus required placeholder="Nombre" type="text" id="nombre" onChange={this.manejarCambio} value={this.state.videojuego.nombre} className="form-control" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="precio">Precio:</label>
@@ -36,8 +38,6 @@ class AgregarVideojuego extends React.Component {
                         <button className="btn btn-success">Guardar</button>
                     </div>
                 </form>
-                <p>Depuración:</p>
-                <pre>{JSON.stringify(this.state.videojuego)}</pre>
             </div>
         );
     }
@@ -45,14 +45,34 @@ class AgregarVideojuego extends React.Component {
 
         evento.preventDefault();
         // Codificar nuestro videojuego como JSON
+
         const cargaUtil = JSON.stringify(this.state.videojuego);
         // ¡Y enviarlo!
-        const r = await fetch(`${Constantes.RUTA_API}/guardar_videojuego.php`, {
+        const respuesta = await fetch(`${Constantes.RUTA_API}/guardar_videojuego.php`, {
             method: "POST",
             body: cargaUtil,
         });
-        const respuesta = await r.json();
-        console.log({ respuesta });
+        const exitoso = await respuesta.json();
+        if (exitoso) {
+            toast('Videojuego guardado 🎮', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            this.setState({
+                videojuego: {
+                    nombre: "",
+                    precio: "",
+                    calificacion: "",
+                }
+            });
+        } else {
+            toast.error("Error guardando. Intenta de nuevo");
+        }
     }
     manejarCambio(evento) {
         // Extraer la clave del estado que se va a actualizar, así como el valor
