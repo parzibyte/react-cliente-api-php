@@ -12,6 +12,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-toastify": "^6.2.0",
+    "sweetalert2": "^10.12.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

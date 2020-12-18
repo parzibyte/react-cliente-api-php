@@ -1,6 +1,6 @@
 import React from 'react';
 import Constantes from "./Constantes";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import FilaDeTablaDeVideojuego from './FilaDeTablaDeVideojuego';
 class VerVideojuegos extends React.Component {
