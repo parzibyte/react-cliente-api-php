@@ -1,10 +1,27 @@
-import AgregarVideojuego from "./AgregarVideojuego"
+import Nav from "./Nav";
+import AgregarVideojuego from "./AgregarVideojuego";
+import Testing from "./Testing";
+import {
+  Switch,
+  Route,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <div className="row">
-        <AgregarVideojuego></AgregarVideojuego>
+    <div>
+      <Nav></Nav>
+      <div className="container is-fullhd">
+        <div className="columns">
+          <Switch>
+            <Route path="/agregar/videojuego">
+              <AgregarVideojuego></AgregarVideojuego>
+            </Route>
+            <Route path="/">
+              <Testing></Testing>
+            </Route>
+
+          </Switch>
+        </div>
       </div>
     </div>
   );
