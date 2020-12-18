@@ -1,6 +1,6 @@
 import Nav from "./Nav";
 import AgregarVideojuego from "./AgregarVideojuego";
-import Testing from "./Testing";
+import VerVideojuegos from "./VerVideojuegos";
 import {
   Switch,
   Route,
@@ -17,9 +17,8 @@ function App() {
               <AgregarVideojuego></AgregarVideojuego>
             </Route>
             <Route path="/">
-              <Testing></Testing>
+              <VerVideojuegos></VerVideojuegos>
             </Route>
-
           </Switch>
         </div>
       </div>
