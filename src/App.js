@@ -17,11 +17,14 @@ function App() {
             <Route path="/videojuegos/agregar">
               <AgregarVideojuego></AgregarVideojuego>
             </Route>
+            <Route path="/videojuegos/editar/:id">
+              <EditarVideojuego></EditarVideojuego>
+            </Route>
             <Route path="/videojuegos/ver">
               <VerVideojuegos></VerVideojuegos>
             </Route>
-            <Route path="/videojuegos/editar/:id">
-              <EditarVideojuego></EditarVideojuego>
+            <Route path="/">
+              <VerVideojuegos></VerVideojuegos>
             </Route>
           </Switch>
         </div>

@@ -1,5 +1,11 @@
 {
-  "name": "notas-mern",
+  "homepage": "./",
+  "name": "react-cliente-php",
+  "author": {
+    "email": "parzibyte@gmail.com",
+    "name": "Parzibyte",
+    "url": "https://parzibyte.me"
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {

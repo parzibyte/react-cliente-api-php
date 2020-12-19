@@ -7,7 +7,7 @@ class Nav extends React.Component {
             <nav className="navbar is-warning" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
                     <a className="navbar-item" href="https://parzibyte.me/l/fW8zGd">
-                        <img alt="" src={logo} style={{ maxHeight: "70px" }} />
+                        <img alt="" src={logo} style={{ maxHeight: "80px" }} />
                     </a>
                     <button  className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
