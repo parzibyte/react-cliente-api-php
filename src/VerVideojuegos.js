@@ -19,25 +19,29 @@ class VerVideojuegos extends React.Component {
     }
     render() {
         return (
-            <div className="column">
-                <h1 className="is-size-3">Ver videojuegos</h1>
-                <ToastContainer></ToastContainer>
-                <table className="table is-fullwidth is-bordered">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Calificación</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.videojuegos.map(videojuego => {
-                            return <FilaDeTablaDeVideojuego key={videojuego.id} videojuego={videojuego}></FilaDeTablaDeVideojuego>;
-                        })}
-                    </tbody>
-                </table>
+            <div>
+                <div className="column">
+                    <h1 className="is-size-3">Ver videojuegos</h1>
+                    <ToastContainer></ToastContainer>
+                </div>
+                <div className="table-container">
+                    <table className="table is-fullwidth is-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Calificación</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.videojuegos.map(videojuego => {
+                                return <FilaDeTablaDeVideojuego key={videojuego.id} videojuego={videojuego}></FilaDeTablaDeVideojuego>;
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     }

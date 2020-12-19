@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <Nav></Nav>
-      <div className="container is-fullhd">
+      <div className="section">
         <div className="columns">
           <Switch>
             <Route path="/videojuegos/agregar">
